@@ -1,5 +1,3 @@
-// Nicholas Nikas
-// 260870980
 #include <iostream>
 #include "functions.cpp"
 using namespace std;
@@ -21,4 +19,31 @@ int main()
         while (!legal)
         {
             cout << "Invalid input, please input a different cell: ";
--- INSERT --
+            cin >> input;
+            legal = checkIfLegal(input, board);
+        }
+        board[input] = 'X';
+        displayBoard(board);
+        isWinner = checkWinner(board);
+        if (isWinner == true)
+        {
+            cout << "Player has won!!!" << endl;
+            break;
+        }
+        cout << endl;
+
+        // Computer turn
+        cout << "Computer turn: ";
+        cout << endl;
+        computerMove(board);
+        displayBoard(board);
+        isWinner = checkWinner(board);
+        if (isWinner)
+        {
+            cout << "Computer has won!!!" << endl;
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
